@@ -21,10 +21,31 @@ print(f"total votes:{total}")
 print(all_candidates)
 print(all_votes)
 
+win_count = 0
+win_can = ""
+for name in all_candidates: 
+    if all_votes[name] > win_count:
+        win_can= name
+        win_count = all_votes[name]
+
+print(f"Total votes:{total}\n")
+print("-----\n")
+for name in all_candidates: 
+    per= round(all_votes[name]/total *100, 2)
+    print(f"{name}: ({per}%) {all_votes[name]}\n")
+print("-----\n")
+print(f"Winner: {win_can}\n")
+print("-----\n")
+
 with open(save_path,"w") as results:
-    results.write(f"total votes:{total}\n")
+    results.write(f"Total votes:{total}\n")
+    results.write("-----\n")
     for name in all_candidates: 
-        results.write(f"{name}: {all_votes[name]}\n")
+        per= round(all_votes[name]/total *100, 2)
+        results.write(f"{name}: ({per}%) {all_votes[name]}\n")
+    results.write("-----\n")
+    results.write(f"Winner: {win_can}\n")
+    results.write("-----\n")
     # results.write(all_candidates)
     # results.write(all_votes)
 
