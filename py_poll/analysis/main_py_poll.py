@@ -1,8 +1,8 @@
 import csv
 import os
 
-file_path = os.path.join("Resources", "election_data.csv")
-save_path = os.path.join("analysis", "test.txt")
+file_path = os.path.join("..", "Resources", "election_data.csv")
+save_path = os.path.join("test_py_poll.txt")
 all_candidates = []
 all_votes = {}
 total = 0
@@ -46,7 +46,6 @@ with open(save_path,"w") as results:
     results.write("-----\n")
     results.write(f"Winner: {win_can}\n")
     results.write("-----\n")
-    # results.write(all_candidates)
-    # results.write(all_votes)
+
 
 
